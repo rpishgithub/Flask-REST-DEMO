@@ -1,25 +1,41 @@
 from Models import db, Item
 
 
-def init():
+def initDB():
     pass
 
 
 def addItem(content):
-    pass
+    item = Item(content)
+    db.session.add(item)
+    db.session.commit()
+    return item
+
+
+def searchItem(id):
+    item = Item.query.filter_by(id=id).first()
+    return item
 
 
 def deleteItem(id):
-    pass
+    item = searchItem(id)
+    db.session.delete(item)
+    db.session.commit()
+    return item
 
 
 def finishItem(id):
-    pass
+    item = searchItem(id)
+    item.isFinished = True
+    db.session.commit()
+    return item
 
 
 def fetchUnfinishedList():
-    pass
+    items = Item.query.filter_by(isFinished=False).all()
+    return items
 
 
 def fetchFinishedList():
-    pass
+    items = Item.query.filter_by(isFinished=True).all()
+    return items

@@ -6,7 +6,7 @@ class Item(db.Model):
     content = db.Column(db.String(100), nullable=False)
     isFinished = db.Column(db.Boolen, nullable=False)
 
-    def __init__(self, content, isFinished):
+    def __init__(self, content, isFinished=False):
         self.content = content
         self.isFinished = isFinished
 
