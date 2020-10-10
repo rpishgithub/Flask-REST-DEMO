@@ -1,8 +1,18 @@
-from Models import db, Item
+from Models import db
+from Models.Item import Item
+
+# from Services.ItemService import initDB
 
 
 def initDB():
-    pass
+    from flask import Flask
+    from Models import db
+    from config import Config
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
 
 
 def addItem(content):

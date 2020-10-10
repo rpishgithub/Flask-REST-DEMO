@@ -4,7 +4,7 @@ from . import db, ma
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(100), nullable=False)
-    isFinished = db.Column(db.Boolen, nullable=False)
+    isFinished = db.Column(db.Boolean, nullable=False)
 
     def __init__(self, content, isFinished=False):
         self.content = content
