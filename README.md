@@ -1,6 +1,6 @@
 # Flask-REST-DEMO
 This is a Demo which demostrate how to write basic RESTful API of a simple todo application via Flask Framework.
-#Usage
+# Usage
 ```python
 pip install -r requirements.txt
 python app.py
